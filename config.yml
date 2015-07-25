@@ -1,0 +1,81 @@
+#################################################################################
+#                           Welcome to Party Crates!                            #
+#  This is the plugin configuration, here you can create and edit your crates,  # 
+#             define your crate prizes, and the edit chat messages.             #
+#                                                                               #
+#      I ask you to please read over my comments, they will help you a lot.     #
+#                                                                               #
+# I have fully commented this config to help you configure your crates and help #
+#                   you not get confused. It's easy I promise!                  #
+#                                                                               #
+#    If you have any issues please feel free to message me on skype and I will  #
+#               help you to the best of my ability! Skype: filatovc             #
+#                                                                               #
+#  Thank you for choosing Party Crates and I really hope you and your community #
+#                             enjoys using my plugin!                           #
+#################################################################################
+
+crates:
+    exampleCrate:                              #This can be anything, although make it unique to other crates!
+        name: 'Example Crate'                      #This is your crate's name, for front end messages and display. Don't bother with colors here.
+        id: 1                                      #This is your crate's id, for giving crates via command.
+        permission: 'crates.use.example'           #Permission to open the crate, leave this empty for no permission. permission: ''
+        interactItem:                              #The crate item itself, if ever changed, all previous crates will not work!
+            itemId: '54'                               #The crate item id number. Support durability with :  
+            name: '&6Example Crate'                    #The display name on the crate's item.
+            lore:                                      #List of lore on the crate's item.
+            - '&aLeft-Click while holding this'
+            - '&acrate to view crate prizes.'
+            - ''
+            - '&aRight-Click while holding this'      
+            - '&acrate to open the crate.'
+        prizes:                                    
+            examplePrize1:                        #This can be anything, although make it  unique to other prizes for this crate.
+                prizeName: '32 Diamond'               #This is your prize's name, for front end messages and display. Don't bother with colors here.
+                displayItem:                          #Your prize's display item, shown when spinning and in prize menus only.
+                    itemId: '264'                         #The display item's id. Support durability with :
+                    amount: 32                            #The display item's amount.
+                    name: '&632 Diamonds'                 #The display name on the prize's display item.
+                    lore:                                 #List of lore on the prize's display item.
+                    - '&aThis prize rewards you with'
+                    - '&a32 diamonds.'
+                    - ''
+                    - '&9Chance: &e75%'
+                    enchants:                             #List of enchants on the prize's display item. Format -> protection:2 See examplePrize2 for better example.
+                chance: 75.00                             #Chance for your item to be won. Supports decimals from 0.01 - 100.00
+                commands:                                 #List of commands to be executed in the console when the player wins this prize. %player% -> winner's name
+                - 'give %player% 264 1'
+            examplePrize2:
+                prizeName: 'Protection II Diamond Armor'
+                displayItem:
+                    itemId: '310'
+                    amount: 1
+                    name: '&6Protection II Diamond Armor'
+                    lore:
+                    - '&aThis prize rewards you with'
+                    - '&aa full set of protection II'
+                    - '&aarmor.'
+                    - ''
+                    - '&9Chance: &e15.5%'
+                    enchants:
+                    - 'protection:2'
+                chance: 15.5
+                commands:
+                - 'give %player% 310 1 protection:2'
+                - 'give %player% 311 1 protection:2'
+                - 'give %player% 312 1 protection:2'
+                - 'give %player% 313 1 protection:2'
+
+##################################################
+#                  Message Tags                  #
+#                                                #
+# %cratename% - Name of the crate.               #
+# %prizename% - Name of the prize.               #
+# %prizechance% - Chance of the prize to be won. #
+# %player% - Name of the player.                 #
+##################################################
+messages:
+    initialSpin: '&eSpinning &6%cratename%&e...'
+    wonPrize: '&eYou have won &6%prizename% &efrom the &6%cratename%&e.'
+    noPermission: '&cYou do not have permission to open the %cratename%.'
+    noPermissionCommand: '&cYou do not have permission.'

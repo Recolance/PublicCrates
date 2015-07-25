@@ -1,0 +1,6 @@
+name: Crates
+version: 1.0
+main: me.recolance.crates.Crates
+
+commands:
+    pcrates:
